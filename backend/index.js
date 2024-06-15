@@ -9,16 +9,23 @@ import { v4 } from "uuid";
 const generateRoomId = customAlphabet('1234567890', 4);
 
 const app=express();
-app.use(cors());
+app.use(cors({
+    origin: '*',
+    methods: ['GET', 'POST'],
+    credentials: true,
+  }));
+  
+  
 
 const server=http.createServer(app);
-const io=new Server(server,{
-    cors:{
-        origin:"*",
-        methods:["GET","POST"],
-        credentials:true,
-    },
-});
+const io = new Server(server, {
+    cors: {
+      origin: 'https://canvasync.netlify.app',
+      methods: ['GET', 'POST'],
+      credentials: true, 
+    }
+  });
+  
 
 
 const rooms=new Map();
@@ -150,6 +157,9 @@ const addMove = (roomId,socketId,move) => {
 
     
 })
+app.get('/socket.io', (req, res) => {
+    res.send('Hello from socket.io route!');
+  });
 server.listen(3000,()=>{
     console.log('server is running at port 3000');
 });

@@ -1,6 +1,6 @@
 import {io,Socket} from 'socket.io-client';
 
-const socket=io('https://vercel.com/rahul-nain172s-projects/whiteboard-app/5ehkBrWVBkjYzs8KjQW32jDEAuNS/');
+const socket=io('https://whiteboard-ce6v726a2-rahul-nain172s-projects.vercel.app/');
 socket.on('connect', () => {
 });
 export default socket;
