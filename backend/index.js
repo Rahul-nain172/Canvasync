@@ -101,7 +101,7 @@ const addMove = (roomId,socketId,move) => {
         const room=rooms.get(roomId);
         if(!room)return;
         const userName=room.users.get(socket.id);
-        socket.broadcast.to(getRoomId()).emit("newMessage",socket.id,userName);
+        socket.broadcast.to(getRoomId()).emit("newMessage",userName,message);
       });
     socket.on("draw", (move) => {
         const roomId = getRoomId();
@@ -161,6 +161,6 @@ app.get('/socket.io', (req, res) => {
     res.send('Hello from socket.io route!');
   });
 server.listen(port,()=>{
-    console.log(`server is running at port ${3000}`);
+    console.log(`server is running at port ${port}`);
 });
 

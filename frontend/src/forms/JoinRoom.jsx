@@ -31,7 +31,6 @@ export default function JoinRoom() {
     }
     useEffect(() => {
         const handleJoined=(roomId,failed)=>{
-            alert(roomId);
             if (failed) {
                 alert('Room is Full');
             } else {
