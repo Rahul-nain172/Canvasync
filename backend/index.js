@@ -9,11 +9,7 @@ import { v4 } from "uuid";
 const generateRoomId = customAlphabet('1234567890', 4);
 
 const app=express();
-app.use(cors({
-    origin: '*',
-    methods: ['GET', 'POST'], 
-    allowedHeaders: ['Content-Type', 'Authorization'],
-  }));
+app.use(cors());
 
 const server=http.createServer(app);
 const io=new Server(server,{
