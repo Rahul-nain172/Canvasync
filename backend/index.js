@@ -1,6 +1,6 @@
 import express from 'express';
 import http, { get } from 'http'
-import cors from 'cors'
+import cors from 'cors';
 import { customAlphabet } from 'nanoid';
 import { Server } from 'socket.io';
 import { join } from 'path';
@@ -9,6 +9,12 @@ import { v4 } from "uuid";
 const generateRoomId = customAlphabet('1234567890', 4);
 
 const app=express();
+app.use(cors({
+    origin: '*',
+    methods: ['GET', 'POST'], 
+    allowedHeaders: ['Content-Type', 'Authorization'],
+  }));
+
 const server=http.createServer(app);
 const io=new Server(server,{
     cors:{
