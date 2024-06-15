@@ -63,7 +63,7 @@ export default function Form() {
 
     return (
         <div className='flex flex-col justify-center items-center bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 w-screen h-screen'>
-            <h1 className='text-5xl font-bold text-white mb-8 drop-shadow-lg'>Welcome to WhiteBoard</h1>
+            <h1 className='text-5xl font-bold text-white mb-8 drop-shadow-lg'>Welcome to CanvaSync</h1>
             <div className='flex flex-col justify-center items-center gap-6 bg-white p-8 rounded-lg shadow-2xl w-96'>
                 <div className='flex flex-col w-full'>
                     <label htmlFor='name' className='font-medium text-lg mb-2 text-gray-700'>Enter Your Name</label>
