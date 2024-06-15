@@ -5,7 +5,7 @@ import { customAlphabet } from 'nanoid';
 import { Server } from 'socket.io';
 import { join } from 'path';
 import { v4 } from "uuid";
-
+const port=process.env.PORT||4000;
 const generateRoomId = customAlphabet('1234567890', 4);
 
 const app=express();
@@ -160,7 +160,7 @@ const addMove = (roomId,socketId,move) => {
 app.get('/socket.io', (req, res) => {
     res.send('Hello from socket.io route!');
   });
-server.listen(3000,()=>{
-    console.log('server is running at port 3000');
+server.listen(port,()=>{
+    console.log(`server is running at port ${3000}`);
 });
 
