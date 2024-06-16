@@ -30,7 +30,6 @@ export default function Share() {
     document.body.removeChild(textarea);
     toast.success('Copied the link to clipboard');
 
-    // Optional: Notify the user or handle other logic after copying
   };
   return (
     <>
@@ -44,7 +43,7 @@ export default function Share() {
       <motion.div
         className="share-container absolute flex flex-col items-center left-10 top-40 z-[90] rounded-lg cursor-pointer p-5 bg-white text-black shadow-md cursorr"
         animate={{
-          x: -50,
+          x: -100,
           y: Share ? -100 : 800
         }}
         transition={{
