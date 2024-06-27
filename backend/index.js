@@ -6,7 +6,7 @@ import { Server } from 'socket.io';
 import { join } from 'path';
 import { v4 } from "uuid";
 const port=process.env.PORT||4000;
-const generateRoomId = customAlphabet('1234567890', 4);
+const generateRoomId = customAlphabet('1234567890', 6);
 
 const app=express();
 app.use(cors({
@@ -48,7 +48,11 @@ const addMove = (roomId,socketId,move) => {
     
 
     socket.on('createRoom', (userName) => {//when user creates the room
-        const roomId = generateRoomId();
+
+        let roomId = generateRoomId();
+        while(room[roomId]){
+            roomId = generateRoomId();
+        }
         socket.join(roomId);
         // Initialize the room object with the correct structure
         const room = {
