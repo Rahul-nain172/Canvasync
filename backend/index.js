@@ -50,7 +50,7 @@ const addMove = (roomId,socketId,move) => {
     socket.on('createRoom', (userName) => {//when user creates the room
 
         let roomId = generateRoomId();
-        while(room[roomId]){
+        while(rooms[roomId]){
             roomId = generateRoomId();
         }
         socket.join(roomId);
